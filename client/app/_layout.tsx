@@ -45,7 +45,8 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <Stack>
-      <Stack.Screen name="(login)/index" />
+      <Stack.Screen name="index" />
+      <Stack.Screen name="login/index" options={{ headerShown: false }} />
     </Stack>
   );
 }
