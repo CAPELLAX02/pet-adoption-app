@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ErrorHandler } from '../utils/ErrorHandler';
 
-export const ErrorMessage = (
+export const ErrorMiddleware = (
   err: any,
   req: Request,
   res: Response,
@@ -35,7 +35,7 @@ export const ErrorMessage = (
   }
 
   res.status(err.statusCode).json({
-    success: true,
+    success: false,
     message: err.message,
   });
 };

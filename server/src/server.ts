@@ -1,6 +1,7 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { ErrorMiddleware } from './middleware/ErrorMiddleware';
 import { connectDB } from './config/database';
 import userRouter from './routes/userRoutes';
 
@@ -21,6 +22,8 @@ app.use('/api/users', userRouter);
 app.get('/test', (req: Request, res: Response, next: NextFunction) => {
   res.send('Test API is working.');
 });
+
+app.use(ErrorMiddleware);
 
 app.listen(PORT, () => {
   console.log(
