@@ -1,11 +1,13 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { connectDB } from './config/database';
 require('dotenv').config();
+const PORT = process.env.PORT || 8001;
 
 const app: Express = express();
 
-const PORT = process.env.PORT || 8001;
+connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
